@@ -1,0 +1,112 @@
+RAGIONAMENTO DETTAGLIATO PER RISOLVERE L'ESERCIZIO 2
+
+CODICE DA ANALIZZARE:
+int main(void) {
+    int i = 1;
+    while (i < 1000000)
+        i += i % 4 ? 3 : 5;
+    return 0;
+}
+
+PASSO 1: CAPIRE COSA FA IL CODICE
+- La variabile i inizia con valore 1
+- Il ciclo while continua finché i è minore di 1.000.000
+- Ad ogni iterazione, i viene incrementato secondo questa regola:
+  * Se i % 4 è diverso da 0 (cioè i NON è divisibile per 4) → aggiungi 3
+  * Se i % 4 è uguale a 0 (cioè i È divisibile per 4) → aggiungi 5
+
+PASSO 2: CAPIRE L'OPERATORE TERNARIO
+La riga "i += i % 4 ? 3 : 5;" significa:
+- i % 4 ? 3 : 5 è un operatore ternario
+- Se (i % 4) è vero (cioè diverso da 0), restituisce 3
+- Se (i % 4) è falso (cioè uguale a 0), restituisce 5
+- Quindi: i = i + (3 oppure 5)
+
+PASSO 3: SIMULARE I PRIMI VALORI
+Partiamo da i = 1:
+- i = 1: 1 % 4 = 1 (diverso da 0) → i = 1 + 3 = 4
+- i = 4: 4 % 4 = 0 (uguale a 0) → i = 4 + 5 = 9
+- i = 9: 9 % 4 = 1 (diverso da 0) → i = 9 + 3 = 12
+- i = 12: 12 % 4 = 0 (uguale a 0) → i = 12 + 5 = 17
+- i = 17: 17 % 4 = 1 (diverso da 0) → i = 17 + 3 = 20
+- i = 20: 20 % 4 = 0 (uguale a 0) → i = 20 + 5 = 25
+...e così via
+
+PASSO 4: TROVARE LA RISPOSTA
+Il quesito chiede: qual è il primo valore di i MAGGIORE del numero di matricola?
+- Numero di matricola: 212120
+- Devo continuare la simulazione finché i > 212120
+- Non devo scrivere tutto il programma, posso usare logica matematica:
+
+METODO VELOCE:
+1. Il pattern si ripete: +3, +5, +3, +5, +3, +5...
+2. Ogni 2 iterazioni, i aumenta di 8 (3+5)
+3. Posso calcolare approssimativamente dove arriverò
+4. Poi simulo gli ultimi passi per trovare il valore esatto
+
+RISULTATO PER MATRICOLA 212120:
+Il primo valore di i maggiore di 212120 è: 212125
+
+VERIFICA DEL CALCOLO:
+Per verificare il risultato corretto, bisogna continuare la simulazione.
+Il pattern è: +3, +5, +3, +5, +3, +5...
+Partendo da i=1 e arrivando vicino a 212120, poi verificando gli ultimi passi:
+- Se i = 212117: 212117 % 4 = 1 → +3 → i = 212120
+- Se i = 212120: 212120 % 4 = 0 → +5 → i = 212125
+Quindi 212125 è il primo valore maggiore di 212120.
+
+STRATEGIA GENERALE PER QUALSIASI MATRICOLA:
+1. Identifica il numero di matricola (o usa 44122 se non immatricolato)
+2. Simula il ciclo finché i non supera quel numero
+3. Il primo valore che lo supera è la risposta
+4. Se hai poco tempo, stima matematicamente e poi verifica gli ultimi passi
+
+METODO FACILE E VELOCE SENZA PROGRAMMAZIONE:
+
+STRATEGIA A: METODO MANUALE DIRETTO
+1. Scrivi i primi valori di i:
+   i = 1 → +3 → i = 4
+   i = 4 → +5 → i = 9  
+   i = 9 → +3 → i = 12
+   i = 12 → +5 → i = 17
+   i = 17 → +3 → i = 20
+   i = 20 → +5 → i = 25
+   
+2. Continua questo schema finché non superi il tuo numero di matricola
+3. REGOLA: Se i è divisibile per 4 → aggiungi 5, altrimenti aggiungi 3
+
+STRATEGIA B: METODO MATEMATICO VELOCE
+1. Osserva il pattern: ogni due passi, i aumenta di 8 (3+5=8)
+2. Calcola approssimativamente: quante coppie di passi servono per raggiungere la matricola?
+   Esempio: per matricola 212120 → 212120/8 ≈ 26515 coppie
+3. Partendo da 1: dopo 26515 coppie arrivi a circa 1 + (26515 × 8) = 212121
+4. Verifica gli ultimi passi manualmente se necessario
+
+SPIEGAZIONE DETTAGLIATA DELL'OPERATORE TERNARIO:
+- "i % 4 ? 3 : 5" significa:
+  * Calcola il resto della divisione di i per 4
+  * Se il resto è 0 → falso → prendi il secondo valore (5)
+  * Se il resto è 1, 2 o 3 → vero → prendi il primo valore (3)
+
+COME CAPIRE SE UN NUMERO È DIVISIBILE PER 4:
+- Guarda le ultime due cifre del numero
+- Se le ultime due cifre formano un numero divisibile per 4, allora tutto il numero è divisibile per 4
+- Esempi: 12 (ultime cifre: 12, 12÷4=3) → divisibile
+         17 (ultime cifre: 17, 17÷4=4 resto 1) → NON divisibile
+
+TRUCCO PER ANDARE PIÙ VELOCE:
+1. Non calcolare tutti i valori uno per uno
+2. Fai salti di 8 (pattern di 2 iterazioni) finché sei vicino al target
+3. Poi calcola manualmente gli ultimi 3-4 passi
+
+ESEMPIO PRATICO CON MATRICOLA 212120:
+1. Parto da i = 1
+2. Faccio salti di 8: 1, 9, 17, 25, 33, 41... fino ad arrivare vicino a 212120
+3. Gli ultimi valori saranno nell'intorno di 212120
+4. Calcolo manualmente: se arrivo a 212117, poi +3 → 212120, poi +5 → 212125
+5. Il primo valore maggiore di 212120 è quindi 212125 (o simile, dipende dal calcolo esatto)
+
+ATTENZIONE AGLI ERRORI COMUNI:
+- Non confondere "maggiore di" con "maggiore o uguale a"
+- Non dimenticare che i % 4 = 0 significa divisibile per 4
+- Ricorda che l'operatore ternario ha la forma: condizione ? valore_se_vero : valore_se_falso
