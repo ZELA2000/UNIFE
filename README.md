@@ -10,7 +10,7 @@ Benvenuti nella mia libreria personale di programmi e progetti sviluppati durant
 
 ## 👨‍💻 Chi Sono
 
-Sono **zela2000**, uno studente di Informatica presso UNIFE con una passione per la programmazione e le tecnologie informatiche. Durante il mio percorso universitario, ho sviluppato competenze in diversi linguaggi di programmazione e paradigmi, con particolare attenzione ai fondamenti teorici e pratici dell'informatica.
+Sono **Gabriele Bovina**, uno studente di Informatica presso UNIFE con una passione per la programmazione e le tecnologie informatiche. Durante il mio percorso universitario, ho sviluppato competenze in diversi linguaggi di programmazione e paradigmi, con particolare attenzione ai fondamenti teorici e pratici dell'informatica.
 
 ### 🎯 I Miei Obiettivi
 - Approfondire la conoscenza dei linguaggi di programmazione
