@@ -109,5 +109,3 @@ Un ringraziamento speciale a:
 ---
 
 > 💡 **Nota**: Questo repository è in continuo aggiornamento con nuovi progetti e materiali man mano che progredisco nel mio percorso di studi. Ogni contributo e miglioramento viene documentato attraverso commit significativi.
-
-**Ultimo aggiornamento**: Ottobre 2025
