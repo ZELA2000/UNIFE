@@ -20,8 +20,6 @@ Questo manuale copre tutti gli argomenti fondamentali del corso, con esempi prat
 
 ### A. Sintassi e Semantica
 
-### A. Sintassi e Semantica
-
 La **sintassi** definisce le regole grammaticali del C. La **semantica** definisce il significato dei programmi.
 
 - **Flusso predefinito**: Le istruzioni vengono eseguite sequenzialmente dall'alto verso il basso
@@ -169,10 +167,6 @@ int main(void) {
     // Output: 0 10 20 30 40
 }
 ```
-
-### B. Strutture (struct)
-
-Aggregano dati eterogenei.
 
 ### B. Strutture (struct)
 
@@ -928,12 +922,12 @@ File: dati.txt
 
 ### A. Checklist Pre-Compilazione
 
-1. ✓ Ogni `malloc()` ha un controllo `if (ptr == NULL)`
-2. ✓ Ogni `fopen()` ha un controllo `if (fp == NULL)`
-3. ✓ Ogni array è passato con la sua dimensione
-4. ✓ Con `scanf()` uso sempre `&variabile`
-5. ✓ I puntatori sono inizializzati prima dell'uso
-6. ✓ Ogni `malloc()` ha un corrispondente `free()`
+1. * Ogni `malloc()` ha un controllo `if (ptr == NULL)`
+2. * Ogni `fopen()` ha un controllo `if (fp == NULL)`
+3. * Ogni array è passato con la sua dimensione
+4. * Con `scanf()` uso sempre `&variabile`
+5. * I puntatori sono inizializzati prima dell'uso
+6. * Ogni `malloc()` ha un corrispondente `free()`
 
 ### B. Errori Comuni
 
