@@ -4,15 +4,87 @@ Questo manuale copre tutti gli argomenti fondamentali del corso, con esempi prat
 
 ## Indice
 
-1. [Concetti Base del Linguaggio C](#i-concetti-base-del-linguaggio-c)
-2. [Strutture Dati Composte](#ii-strutture-dati-composte)
-3. [Funzioni e Passaggio Parametri](#iii-funzioni-e-passaggio-parametri)
-4. [Array e Pattern Algoritmici](#iv-array-e-pattern-algoritmici)
-5. [ADT Lista Sequenziale](#v-adt-lista-sequenziale)
-6. [ADT Lista Collegata](#vi-adt-lista-collegata)
-7. [Input/Output su File](#vii-inputoutput-su-file)
-8. [Makefile e Compilazione](#viii-makefile-e-compilazione)
-9. [Debugging con GDB](#ix-debugging-con-gdb)
+- [Manuale Completo di Programmazione C per il Parziale Pratico](#manuale-completo-di-programmazione-c-per-il-parziale-pratico)
+  - [Indice](#indice)
+  - [I. Concetti Base del Linguaggio C](#i-concetti-base-del-linguaggio-c)
+    - [A. Sintassi e Semantica](#a-sintassi-e-semantica)
+    - [B. Variabili e Tipi di Dato](#b-variabili-e-tipi-di-dato)
+    - [C. Input e Output](#c-input-e-output)
+    - [D. Operatori e Espressioni](#d-operatori-e-espressioni)
+    - [E. Controllo di Flusso](#e-controllo-di-flusso)
+  - [II. Strutture Dati Composte](#ii-strutture-dati-composte)
+    - [A. Stringhe in C](#a-stringhe-in-c)
+    - [B. Funzioni per Stringhe (string.h)](#b-funzioni-per-stringhe-stringh)
+      - [strcpy - Copia stringhe](#strcpy---copia-stringhe)
+      - [strcmp - Confronta stringhe](#strcmp---confronta-stringhe)
+      - [strlen - Lunghezza stringa](#strlen---lunghezza-stringa)
+      - [strcat - Concatena stringhe](#strcat---concatena-stringhe)
+      - [Altri funzioni utili](#altri-funzioni-utili)
+    - [C. Array di Stringhe](#c-array-di-stringhe)
+    - [D. Lettura Stringhe da Input](#d-lettura-stringhe-da-input)
+    - [E. Array e Macro](#e-array-e-macro)
+    - [B. Strutture (struct)](#b-strutture-struct)
+    - [C. Tipi Enumerativi (enum)](#c-tipi-enumerativi-enum)
+  - [III. Funzioni e Passaggio Parametri](#iii-funzioni-e-passaggio-parametri)
+    - [A. Passaggio per Valore vs Riferimento](#a-passaggio-per-valore-vs-riferimento)
+    - [B. Array come Parametri](#b-array-come-parametri)
+  - [IV. Array e Pattern Algoritmici](#iv-array-e-pattern-algoritmici)
+    - [A. Pattern ForEach (Scansione)](#a-pattern-foreach-scansione)
+    - [B. Pattern Filter (Filtro)](#b-pattern-filter-filtro)
+    - [C. Pattern Reduce (Accumulazione)](#c-pattern-reduce-accumulazione)
+    - [D. Algoritmi di Ordinamento](#d-algoritmi-di-ordinamento)
+  - [V. ADT Lista Sequenziale](#v-adt-lista-sequenziale)
+    - [A. Concetto](#a-concetto)
+    - [B. Operazioni di Inserimento](#b-operazioni-di-inserimento)
+    - [C. Altre Operazioni](#c-altre-operazioni)
+  - [VI. ADT Lista Collegata](#vi-adt-lista-collegata)
+    - [A. Concetto](#a-concetto-1)
+    - [B. Struttura del Nodo](#b-struttura-del-nodo)
+    - [C. Operazioni Base](#c-operazioni-base)
+    - [D. Pattern di Scorrimento](#d-pattern-di-scorrimento)
+    - [E. Memoria Dinamica](#e-memoria-dinamica)
+    - [F. Confronto Liste Sequenziali vs Collegate](#f-confronto-liste-sequenziali-vs-collegate)
+  - [VII. Input/Output su File](#vii-inputoutput-su-file)
+    - [A. Apertura e Chiusura File](#a-apertura-e-chiusura-file)
+    - [B. File di Testo](#b-file-di-testo)
+    - [C. File Binari](#c-file-binari)
+    - [D. Pattern Comuni di Lettura File](#d-pattern-comuni-di-lettura-file)
+      - [1. File Binario con Struct (dal progetto Calorie)](#1-file-binario-con-struct-dal-progetto-calorie)
+      - [2. File Testo + File Binario (pattern completo)](#2-file-testo--file-binario-pattern-completo)
+      - [3. Gestione Errori Multipli File](#3-gestione-errori-multipli-file)
+  - [VIII. Makefile e Compilazione](#viii-makefile-e-compilazione)
+    - [A. Struttura di un Progetto Multi-file](#a-struttura-di-un-progetto-multi-file)
+    - [B. Formato del Makefile](#b-formato-del-makefile)
+    - [C. Esempio Completo (dal codice reale)](#c-esempio-completo-dal-codice-reale)
+    - [D. Uso del Makefile](#d-uso-del-makefile)
+  - [IX. Debugging con GDB](#ix-debugging-con-gdb)
+    - [A. Compilazione per il Debug](#a-compilazione-per-il-debug)
+    - [B. Comandi Base di GDB](#b-comandi-base-di-gdb)
+    - [C. Esempio di Sessione Debug](#c-esempio-di-sessione-debug)
+    - [D. Debug di Bug Logici](#d-debug-di-bug-logici)
+  - [X. Argomenti da Linea di Comando](#x-argomenti-da-linea-di-comando)
+    - [A. argc e argv](#a-argc-e-argv)
+    - [B. Esempio Completo con Validazione (dal progetto)](#b-esempio-completo-con-validazione-dal-progetto)
+  - [XI. Consigli Pratici per il Parziale](#xi-consigli-pratici-per-il-parziale)
+    - [A. Checklist Pre-Compilazione](#a-checklist-pre-compilazione)
+    - [B. Errori Comuni](#b-errori-comuni)
+    - [C. Pattern da Ricordare](#c-pattern-da-ricordare)
+  - [XII. Pattern Avanzati e Tecniche Comuni](#xii-pattern-avanzati-e-tecniche-comuni)
+    - [A. Algoritmo MCD (Massimo Comun Divisore)](#a-algoritmo-mcd-massimo-comun-divisore)
+    - [B. Ordinamento con Criteri Multipli](#b-ordinamento-con-criteri-multipli)
+    - [C. Contare Occorrenze in Array](#c-contare-occorrenze-in-array)
+    - [D. Copiare Lista in Array per Ordinamento](#d-copiare-lista-in-array-per-ordinamento)
+    - [E. Aggiornare Elementi in Lista](#e-aggiornare-elementi-in-lista)
+    - [F. Cicli con Condizioni Complesse](#f-cicli-con-condizioni-complesse)
+    - [G. Stampa Formattata](#g-stampa-formattata)
+    - [H. Esempio Completo: Lettura File con Matricole](#h-esempio-completo-lettura-file-con-matricole)
+  - [Riepilogo Rapido](#riepilogo-rapido)
+    - [Tipi di Dato](#tipi-di-dato)
+    - [Puntatori](#puntatori)
+    - [Liste](#liste)
+    - [File](#file)
+    - [Compilazione](#compilazione)
+- [**Buono lavoro!**](#buono-lavoro)
 
 ---
 
@@ -144,7 +216,155 @@ for (int i = 0; i < 10; i++) {
 
 ## II. Strutture Dati Composte
 
-### A. Array e Macro
+### A. Stringhe in C
+
+In C, le stringhe sono **array di caratteri terminati da '\0'** (carattere nullo).
+
+**Dichiarazione e inizializzazione:**
+
+```c
+char nome1[20] = "Mario";     // Terminatore automatico
+char nome2[] = "Luigi";       // Dimensione automatica (6 char)
+char nome3[20];               // Non inizializzata (contiene spazzatura)
+
+// Caratteri individuali
+nome1[0] = 'M';  // Primo carattere
+nome1[1] = 'a';  // Secondo carattere
+```
+
+**Rappresentazione in memoria:**
+
+```c
+char nome[6] = "Mario";
+// Memoria: ['M']['a']['r']['i']['o']['\0']
+//           [0]  [1]  [2]  [3]  [4]  [5]
+```
+
+**IMPORTANTE:** Il terminatore '\0' è fondamentale! Senza di esso, le funzioni di stringa non funzionano correttamente.
+
+### B. Funzioni per Stringhe (string.h)
+
+**Devi includere:** `#include <string.h>`
+
+#### strcpy - Copia stringhe
+
+```c
+char dest[50];
+char src[] = "Ciao";
+strcpy(dest, src);  // dest diventa "Ciao"
+
+// ATTENZIONE: dest deve essere abbastanza grande!
+char troppo_piccolo[3];
+strcpy(troppo_piccolo, "Ciao");  // ERRORE! Buffer overflow
+```
+
+#### strcmp - Confronta stringhe
+
+```c
+char s1[] = "Mario";
+char s2[] = "Mario";
+char s3[] = "Luigi";
+
+// NON usare == per confrontare stringhe!
+if (s1 == s2) { ... }  // SBAGLIATO! Confronta indirizzi
+
+// Usare strcmp:
+if (strcmp(s1, s2) == 0) {
+    printf("Stringhe uguali\n");
+}
+
+if (strcmp(s1, s3) < 0) {
+    printf("s1 viene prima di s3\n");  // Ordine alfabetico
+}
+```
+
+**Valori di ritorno strcmp:**
+- `== 0`: stringhe uguali
+- `< 0`: prima stringa precede la seconda (alfabeticamente)
+- `> 0`: prima stringa segue la seconda
+
+#### strlen - Lunghezza stringa
+
+```c
+char nome[] = "Mario";
+int len = strlen(nome);  // len = 5 (NON conta il '\0')
+
+// Ciclo su ogni carattere
+for (int i = 0; i < strlen(nome); i++) {
+    printf("%c ", nome[i]);
+}
+// Output: M a r i o
+```
+
+#### strcat - Concatena stringhe
+
+```c
+char dest[50] = "Ciao ";
+char src[] = "Mondo";
+strcat(dest, src);
+printf("%s\n", dest);  // Output: Ciao Mondo
+
+// ATTENZIONE: dest deve avere spazio sufficiente!
+```
+
+#### Altri funzioni utili
+
+```c
+// strchr - Trova un carattere nella stringa
+char str[] = "Mario";
+char *pos = strchr(str, 'r');
+if (pos != NULL) {
+    printf("Trovato alla posizione: %ld\n", pos - str);  // 2
+}
+
+// strstr - Trova una sottostringa
+char testo[] = "Ciao Mario";
+char *pos2 = strstr(testo, "Mario");
+if (pos2 != NULL) {
+    printf("Trovato: %s\n", pos2);  // Output: Mario
+}
+```
+
+### C. Array di Stringhe
+
+```c
+// Array di 5 stringhe, ognuna lunga max 20 caratteri
+char nomi[5][20] = {
+    "Mario",
+    "Luigi",
+    "Anna",
+    "Paolo",
+    "Giulia"
+};
+
+// Accesso
+printf("%s\n", nomi[0]);  // Mario
+printf("%c\n", nomi[0][0]);  // M (primo carattere)
+
+// Ciclo su tutte le stringhe
+for (int i = 0; i < 5; i++) {
+    printf("%s\n", nomi[i]);
+}
+```
+
+### D. Lettura Stringhe da Input
+
+```c
+char nome[50];
+
+// scanf - ATTENZIONE: si ferma al primo spazio!
+scanf("%s", nome);  // Legge fino a spazio/newline
+// Input: "Mario Rossi" → nome = "Mario"
+
+// fgets - Legge anche gli spazi
+fgets(nome, 50, stdin);  // Legge max 49 caratteri + '\0'
+// Input: "Mario Rossi" → nome = "Mario Rossi\n"
+
+// Rimuovere newline da fgets:
+nome[strcspn(nome, "\n")] = '\0';
+```
+
+### E. Array e Macro
 
 Le macro (`#define`) sono fondamentali per definire costanti.
 
@@ -361,8 +581,6 @@ L'implementazione sequenziale usa un **array** come contenitore fisico.
 
 - **Dimensione fisica** (`DIMENSIONE`): massimo prefissato
 - **Dimensione logica** (`n_elementi`): numero effettivo di elementi
-
-**Esempio: Struttura della Lista**
 
 **Esempio: Struttura della Lista**
 
@@ -612,6 +830,26 @@ void elimina(Lista *pl, int valore) {
 }
 ```
 
+**7. Conversione enum a stringa (utility comune):**
+
+```c
+// Utile per stampare valori enum in forma leggibile
+const char* vaccino_to_string(Vaccino v) {
+    switch (v) {
+        case cimurro:     return "cimurro";
+        case epatite:     return "epatite";
+        case parvovirosi: return "parvovirosi";
+        case null:        return " ";
+        default:          return "sconosciuto";
+    }
+}
+
+// Uso:
+Vaccino v = cimurro;
+printf("Vaccino: %s\n", vaccino_to_string(v));
+// Output: Vaccino: cimurro
+```
+
 ### D. Pattern di Scorrimento
 
 **Pattern fondamentale per scorrere una lista:**
@@ -708,10 +946,117 @@ while (fscanf(fp, "%d %s", &numero, nome) == 2) {
 }
 ```
 
+**IMPORTANTE:** `fscanf` ritorna il numero di elementi letti con successo:
+- Ritorna `2` se ha letto correttamente sia numero che nome
+- Ritorna `EOF` (-1) alla fine del file
+- Ritorna meno elementi se la lettura fallisce
+
 **Scrittura con fprintf:**
 
 ```c
 fprintf(fp, "%d %s\n", 42, "Mario");
+```
+
+**Formati comuni per fscanf/fprintf:**
+- `%d` - intero
+- `%f` - float
+- `%s` - stringa (si ferma a spazio/tab/newline)
+- `%c` - singolo carattere
+- `%lf` - double (in lettura)
+
+**Esempio: File con stringhe e numeri (dal progetto pasto.txt)**
+
+File `pasto.txt`:
+```
+Pane 80
+Fontina 40
+Mela 200
+```
+
+Lettura:
+```c
+FILE *pft = fopen("pasto.txt", "rt");
+if (pft == NULL) {
+    printf("Errore apertura file\n");
+    exit(1);
+}
+
+char nome_cibo[31];
+float grammi;
+
+// Legge coppie (stringa, numero)
+while (fscanf(pft, "%s%f", nome_cibo, &grammi) == 2) {
+    printf("Cibo: %s, Grammi: %.1f\n", nome_cibo, grammi);
+}
+// Output:
+// Cibo: Pane, Grammi: 80.0
+// Cibo: Fontina, Grammi: 40.0
+// Cibo: Mela, Grammi: 200.0
+
+fclose(pft);
+```
+
+**ATTENZIONE con %s:**
+- Non legge spazi! "Pane tostato" → legge solo "Pane"
+- Non serve `&` perché il nome dell'array è già un puntatore
+- Assicurati che l'array sia abbastanza grande
+
+**Esempio completo: Lettura e scrittura file testo (dal progetto Studenti)**
+
+```c
+typedef struct {
+    char cognome[20];
+    char nome[20];
+    int matricola;
+} Studente;
+
+int main() {
+    FILE *fp = fopen("nomi.txt", "r");
+    if (fp == NULL) {
+        printf("Errore apertura file\n");
+        return 1;
+    }
+    
+    Studente studenti[100];
+    int count = 0;
+    
+    // Legge cognome, nome e matricola (separati da spazi)
+    while (fscanf(fp, "%s %s %d", 
+                  studenti[count].cognome, 
+                  studenti[count].nome, 
+                  &studenti[count].matricola) == 3) {
+        count++;
+    }
+    fclose(fp);
+    
+    // Ordina per matricola (selection sort)
+    for (int i = 0; i < count - 1; i++) {
+        for (int j = i + 1; j < count; j++) {
+            if (studenti[i].matricola > studenti[j].matricola) {
+                Studente temp = studenti[i];
+                studenti[i] = studenti[j];
+                studenti[j] = temp;
+            }
+        }
+    }
+    
+    // Scrive su file gli studenti ordinati
+    fp = fopen("ordinati.txt", "w");
+    if (fp == NULL) {
+        printf("Errore apertura file in scrittura\n");
+        return 1;
+    }
+    
+    for (int i = 0; i < count; i++) {
+        fprintf(fp, "%s %s %d\n", 
+                studenti[i].cognome, 
+                studenti[i].nome, 
+                studenti[i].matricola);
+    }
+    fclose(fp);
+    
+    return 0;
+}
 ```
 
 ### C. File Binari
@@ -741,6 +1086,159 @@ fwrite(&n, sizeof(int), 1, fp);
 2. Dimensione di ogni elemento (`sizeof()`)
 3. Numero di elementi da leggere
 4. Puntatore al file
+
+**Esempio completo: Lettura file binario (dal progetto listaCani)**
+
+```c
+// File binario formato: [int nChip][int vaccino_code] ripetuto
+FILE *fp = fopen(argv[1], "rb");
+if (fp == NULL) {
+    printf("Errore apertura file\n");
+    return 1;
+}
+
+int nChip;
+int vaccino_temp;
+char vaccino;
+
+// Legge coppie (nChip, vaccino) dal file
+while (fread(&nChip, sizeof(int), 1, fp) == 1 && 
+       fread(&vaccino_temp, sizeof(int), 1, fp) == 1) {
+    
+    // Converte int in char (es: 67 → 'C')
+    vaccino = (char)vaccino_temp;
+    
+    // Elabora i dati letti
+    printf("Chip: %d, Vaccino: %c\n", nChip, vaccino);
+}
+fclose(fp);
+```
+
+**IMPORTANTE**: `fread()` ritorna il numero di elementi letti. Controllare sempre il valore di ritorno!
+
+### D. Pattern Comuni di Lettura File
+
+#### 1. File Binario con Struct (dal progetto Calorie)
+
+**Struttura file binario `calorie.dat`:**
+```
+[Cibo1][Cibo2][Cibo3]...
+```
+Ogni Cibo è una struct di 35 byte (31 char + 4 float)
+
+**Lettura completa:**
+```c
+typedef struct {
+    char nome[31];
+    float calorie;
+} Cibo;
+
+FILE *pfb = fopen("calorie.dat", "rb");
+if (pfb == NULL) {
+    printf("Errore apertura file\n");
+    exit(2);
+}
+
+Cibo r;
+Lista lista;
+nuovaLista(&lista);
+
+// Legge tutte le struct dal file
+while (fread(&r, sizeof(Cibo), 1, pfb) == 1) {
+    insCoda(&lista, r);
+}
+fclose(pfb);
+```
+
+**Cosa succede:**
+1. `fread` legge 35 byte (sizeof(Cibo)) dal file
+2. Li copia nella struct `r`
+3. `r` viene inserita nella lista
+4. Ripete fino a fine file (fread ritorna 0)
+
+#### 2. File Testo + File Binario (pattern completo)
+
+**Dal progetto Simulazione Esame Totale:**
+
+```c
+int main(int argc, char *argv[]) {
+    // Controlla argomenti
+    if (argc != 3) {
+        printf("Uso: %s [fileCalorie.dat] [filePasto.txt]\n", argv[0]);
+        exit(1);
+    }
+    
+    Lista lista;
+    nuovaLista(&lista);
+    
+    // === FASE 1: Carica database da file binario ===
+    FILE *pfb = fopen(argv[1], "rb");
+    if (pfb == NULL) {
+        printf("Errore apertura %s\n", argv[1]);
+        exit(2);
+    }
+    
+    Cibo r;
+    while (fread(&r, sizeof(Cibo), 1, pfb) == 1) {
+        insCoda(&lista, r);
+    }
+    fclose(pfb);
+    
+    // === FASE 2: Leggi dati da file testo ===
+    FILE *pft = fopen(argv[2], "rt");
+    if (pft == NULL) {
+        printf("Errore apertura %s\n", argv[2]);
+        exit(3);
+    }
+    
+    char nome_cibo[31];
+    float grammi;
+    float calorie_totali = 0.0;
+    
+    // Legge coppie (nome, grammi) e calcola
+    while (fscanf(pft, "%s%f", nome_cibo, &grammi) == 2) {
+        // Cerca il cibo nella lista e calcola calorie
+        float cal_per_100g = calorie100(lista, nome_cibo);
+        calorie_totali += grammi * cal_per_100g / 100.0;
+    }
+    fclose(pft);
+    
+    printf("Calorie consumate: %.2f\n", calorie_totali);
+    return 0;
+}
+```
+
+**Pattern usato:**
+1. File binario → lista (database)
+2. File testo → elaborazione (query)
+3. Lista + query → risultato
+
+#### 3. Gestione Errori Multipli File
+
+```c
+FILE *fp1 = fopen("file1.txt", "r");
+if (fp1 == NULL) {
+    printf("Errore apertura file1\n");
+    exit(1);
+}
+
+FILE *fp2 = fopen("file2.txt", "r");
+if (fp2 == NULL) {
+    printf("Errore apertura file2\n");
+    fclose(fp1);  // ⚠️ Chiudi il primo prima di uscire!
+    exit(2);
+}
+
+// Elaborazione...
+
+fclose(fp1);
+fclose(fp2);
+```
+
+**BEST PRACTICE:**
+- Codici di uscita diversi per errori diversi
+- Sempre chiudere i file già aperti prima di exit()
+- Controllare SEMPRE il valore di ritorno di fopen()
 
 ---
 
@@ -851,6 +1349,11 @@ $ gdb ./vaccinazioni
 (gdb) run dati.dat      # Esegue con argomento
 (gdb) print nChip       # Stampa valore di nChip
 (gdb) next              # Prossima istruzione
+
+// ATTENZIONE: stringhe NON vogliono &
+char nome[50];
+scanf("%s", nome);   // CORRETTO (nome è già un puntatore)
+scanf("%s", &nome);  // SBAGLIATO!
 (gdb) step              # Entra nella funzione
 (gdb) continue          # Continua
 ```
@@ -916,6 +1419,44 @@ File: dati.txt
 - `argv[1]`: primo argomento (`"dati.txt"`)
 - `argc`: 2 (numero totale di argomenti)
 
+### B. Esempio Completo con Validazione (dal progetto)
+
+```c
+int main(int argc, char *argv[]) {
+    // Controlla numero di argomenti
+    if (argc != 3) {
+        printf("Uso: %s [fileCalorie] [filePasto]\n", argv[0]);
+        exit(1);
+    }
+    
+    // Apre primo file (binario)
+    FILE *pfb = fopen(argv[1], "rb");
+    if (pfb == NULL) {
+        printf("Errore apertura file %s\n", argv[1]);
+        exit(2);
+    }
+    
+    // Apre secondo file (testo)
+    FILE *pft = fopen(argv[2], "rt");
+    if (pft == NULL) {
+        printf("Errore apertura %s\n", argv[2]);
+        fclose(pfb);  // Chiudi il primo file
+        exit(3);
+    }
+    
+    // Elabora i file...
+    
+    fclose(pfb);
+    fclose(pft);
+    return 0;
+}
+```
+
+**BEST PRACTICE:**
+- Sempre controllare `argc` prima di accedere a `argv[i]`
+- Usare `exit()` con codici diversi per errori diversi (0=successo, 1,2,3...=errori)
+- Chiudere i file aperti anche in caso di errore
+
 ---
 
 ## XI. Consigli Pratici per il Parziale
@@ -960,12 +1501,81 @@ for (int i = 0; i < lista.n_elementi; i++) {  // CORRETTO
 // NON usare DIMENSIONE qui!
 ```
 
-**4. Non deallocare la memoria:**
+**4. Non deallocare la memoria (Memory Leak):**
 
 ```c
-Nodo *p = (Nodo *)malloc(sizeof(Nodo));
-// ... uso di p ...
-free(p);  // NON dimenticare!
+// SBAGLIATO: Memory leak!
+void creaLista() {
+    Nodo *p = (Nodo *)malloc(sizeof(Nodo));
+    p->dato.valore = 10;
+    p->next = NULL;
+    // Esce dalla funzione senza fare free(p)
+    // La memoria allocata è persa!
+}
+
+// CORRETTO: Libera sempre la memoria allocata
+void esempioDeallocazione() {
+    // Array dinamico
+    int *arr = (int *)malloc(100 * sizeof(int));
+    if (arr == NULL) exit(1);
+    
+    // Usa arr...
+    
+    free(arr);  // ✓ Libera la memoria
+    arr = NULL; // Best practice: evita dangling pointer
+    
+    // Lista collegata: serve una funzione apposita
+    Lista lista;
+    nuovaLista(&lista);
+    // ... inserimenti ...
+    
+    // Libera tutti i nodi (dal progetto listaCani)
+    while (lista != NULL) {
+        Nodo *temp = lista;
+        lista = lista->next;
+        free(temp);  // Libera ogni nodo
+    }
+}
+```
+
+**IMPORTANTE:** Ogni `malloc()` deve avere un corrispondente `free()`!
+
+**5. Confrontare stringhe con ==:**
+
+```c
+char s1[] = "Mario";
+char s2[] = "Mario";
+
+if (s1 == s2) { ... }           // SBAGLIATO! Confronta indirizzi
+if (strcmp(s1, s2) == 0) { ... } // CORRETTO
+```
+
+**6. Non controllare il valore di ritorno di fscanf:**
+
+```c
+// SBAGLIATO: non controlla se la lettura ha successo
+fscanf(fp, "%d", &x);
+
+// CORRETTO: controlla il numero di elementi letti
+if (fscanf(fp, "%d", &x) == 1) {
+    // Lettura riuscita
+}
+
+// CORRETTO: ciclo di lettura
+while (fscanf(fp, "%d %s", &num, nome) == 2) {
+    // Elabora num e nome
+}
+```
+
+**7. Buffer overflow con stringhe:**
+
+```c
+char nome[5];
+strcpy(nome, "Alessandro");  // ERRORE! Troppo lungo (11 caratteri)
+
+// CORRETTO: usa strncpy
+strncpy(nome, "Alessandro", 4);
+nome[4] = '\0';  // Assicura il terminatore
 ```
 
 ### C. Pattern da Ricordare
@@ -991,6 +1601,284 @@ if (nuovo == NULL) exit(1);
 ```c
 while (fread(&dato, sizeof(tipo), 1, fp) == 1) {
     // elabora dato
+}
+```
+
+**Ricerca con indice:**
+
+```c
+int ricerca(Lista *pl, int valore) {
+    Lista l = *pl;
+    int index = 0;
+    while (l != NULL) {
+        if (l->dato.campo == valore)
+            return index;
+        l = l->next;
+        index++;
+    }
+    return -1;  // Non trovato
+}
+```
+
+**Inserimento ordinato con doppio ordinamento:**
+
+```c
+// Prima per campo1 DESC, poi per campo2 ASC
+if (arr[i].campo1 < arr[j].campo1 || 
+    (arr[i].campo1 == arr[j].campo1 && arr[i].campo2 > arr[j].campo2)) {
+    // swap
+}
+```
+
+---
+
+## XII. Pattern Avanzati e Tecniche Comuni
+
+### A. Algoritmo MCD (Massimo Comun Divisore)
+
+**Algoritmo di Euclide con sottrazione:**
+
+```c
+int MCD(int a, int b) {
+    while (a != b) {
+        if (a < b) {
+            b = b - a;
+        } else {
+            a = a - b;
+        }
+    }
+    return a;
+}
+
+// Esempio d'uso:
+int main() {
+    int m = 12, n = 18;
+    printf("MCD(%d, %d) = %d\n", m, n, MCD(m, n));
+    // Output: MCD(12, 18) = 6
+    return 0;
+}
+```
+
+### B. Ordinamento con Criteri Multipli
+
+**Ordinare prima per un criterio, poi per un altro (dal progetto listaCani):**
+
+```c
+typedef struct {
+    int chip;
+    int n_vaccini;
+} CaneInfo;
+
+// Ordina per:
+// 1. Numero vaccini DECRESCENTE (più vaccini prima)
+// 2. Numero chip CRESCENTE (chip minore prima)
+for (int i = 0; i < n - 1; i++) {
+    for (int j = i + 1; j < n; j++) {
+        // Condizione di scambio composta
+        if (arr[i].n_vaccini < arr[j].n_vaccini ||
+            (arr[i].n_vaccini == arr[j].n_vaccini && 
+             arr[i].chip > arr[j].chip)) {
+            
+            CaneInfo temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+    }
+}
+```
+
+**Pattern generale:**
+```c
+// Per ordinare per campo1 (crescente), poi campo2 (decrescente):
+if (a.campo1 > b.campo1 || 
+    (a.campo1 == b.campo1 && a.campo2 < b.campo2)) {
+    // scambia
+}
+```
+
+### C. Contare Occorrenze in Array
+
+**Conta elementi che soddisfano una condizione:**
+
+```c
+// Conta quanti vaccini ha fatto un cane (esclude 'N')
+int conta_vaccini(Vaccino vaccini[], int dim) {
+    int count = 0;
+    for (int i = 0; i < dim; i++) {
+        if (vaccini[i] != null) {
+            count++;
+        }
+    }
+    return count;
+}
+
+// Uso:
+Vaccino v[3] = {cimurro, epatite, null};
+int n = conta_vaccini(v, 3);  // n = 2
+```
+
+### D. Copiare Lista in Array per Ordinamento
+
+**Pattern comune: lista → array → ordina → elabora**
+
+```c
+// 1. Conta elementi nella lista
+int n_elementi = 0;
+Lista temp = lista;
+while (temp != NULL) {
+    n_elementi++;
+    temp = temp->next;
+}
+
+// 2. Alloca array dinamico
+CaneInfo *arr = (CaneInfo*)malloc(n_elementi * sizeof(CaneInfo));
+if (arr == NULL) {
+    printf("Errore allocazione\n");
+    exit(1);
+}
+
+// 3. Copia dati da lista ad array
+temp = lista;
+int idx = 0;
+while (temp != NULL) {
+    arr[idx].chip = temp->dato.nChip;
+    arr[idx].n_vaccini = /* calcola */;
+    idx++;
+    temp = temp->next;
+}
+
+// 4. Ordina l'array (algoritmi efficienti su array)
+// ... selection sort, bubble sort, etc ...
+
+// 5. Elabora array ordinato
+for (int i = 0; i < n_elementi; i++) {
+    printf("%d\n", arr[i].chip);
+}
+
+// 6. IMPORTANTE: Libera la memoria
+free(arr);
+```
+
+### E. Aggiornare Elementi in Lista
+
+**Modificare dati di un nodo esistente:**
+
+```c
+// Trova il cane con nChip e aggiorna i suoi vaccini
+Lista l = listaCani;
+while (l != NULL) {
+    if (l->dato.nChip == nChip) {
+        // Trova il primo slot libero e inserisci
+        if (l->dato.vaccini[1] == null) {
+            l->dato.vaccini[1] = nuovo_vaccino;
+        } else if (l->dato.vaccini[2] == null) {
+            l->dato.vaccini[2] = nuovo_vaccino;
+        }
+        break;  // Esci dal ciclo
+    }
+    l = l->next;
+}
+```
+
+### F. Cicli con Condizioni Complesse
+
+**While con modulo e operatore ternario:**
+
+```c
+// Incrementa di 3 se i%4!=0, altrimenti di 5
+int i = 1;
+while (i < 1000000) {
+    i += (i % 4 != 0) ? 3 : 5;
+    // Equivale a:
+    // if (i % 4 != 0)
+    //     i = i + 3;
+    // else
+    //     i = i + 5;
+}
+```
+
+### G. Stampa Formattata
+
+**Printf con precisione e allineamento:**
+
+```c
+float cal = 350.5;
+printf("Calorie: %.2f\n", cal);     // 2 decimali: 350.50
+printf("Calorie: %.0f\n", cal);     // 0 decimali: 351 (arrotonda)
+printf("Valore: %6.2f\n", cal);     // Larghezza 6: "350.50"
+printf("Valore: %06.2f\n", cal);    // Padding zeri: "350.50"
+```
+
+### H. Esempio Completo: Lettura File con Matricole
+
+**File nomi.txt:**
+```
+Gabriele Bertelli 212120
+Lorenzo Zela 212126
+Matteo Rizzo 212128
+Anna Rossi 212130
+Carlo Bianchi 212135
+```
+
+**Programma completo (dal progetto Nomi Ordinati):**
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+    char cognome[20];
+    char nome[20];
+    int matricola;
+} Studente;
+
+int main() {
+    FILE *fp = fopen("nomi.txt", "r");
+    if (fp == NULL) {
+        printf("Errore apertura file\n");
+        return 1;
+    }
+    
+    Studente studenti[100];
+    int count = 0;
+    
+    // Legge cognome, nome, matricola (separati da spazi)
+    while (fscanf(fp, "%s %s %d", 
+                  studenti[count].cognome,
+                  studenti[count].nome,
+                  &studenti[count].matricola) == 3) {
+        count++;
+    }
+    fclose(fp);
+    
+    // Selection sort per matricola (crescente)
+    for (int i = 0; i < count - 1; i++) {
+        for (int j = i + 1; j < count; j++) {
+            if (studenti[i].matricola > studenti[j].matricola) {
+                Studente temp = studenti[i];
+                studenti[i] = studenti[j];
+                studenti[j] = temp;
+            }
+        }
+    }
+    
+    // Scrive su file gli studenti ordinati
+    fp = fopen("ordinati.txt", "w");
+    if (fp == NULL) {
+        printf("Errore apertura file in scrittura\n");
+        return 1;
+    }
+    
+    for (int i = 0; i < count; i++) {
+        fprintf(fp, "%s %s %d\n", 
+                studenti[i].cognome,
+                studenti[i].nome,
+                studenti[i].matricola);
+    }
+    fclose(fp);
+    
+    printf("File ordinato creato con successo!\n");
+    return 0;
 }
 ```
 
@@ -1027,4 +1915,4 @@ while (fread(&dato, sizeof(tipo), 1, fp) == 1) {
 
 ---
 
-**Buono lavoro!**
+# **Buono lavoro!**
